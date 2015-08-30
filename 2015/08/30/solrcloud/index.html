@@ -5,16 +5,16 @@
   
   <title>起步SolrCloud | 川上</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="SolrCloud是什么SolrCloud是基于Solr＋ZooKeeper实现的一套高可用、可容错的系统，可以实现原来Solr很难做到的分布式索引，查询请求的负载均衡。在SolrCloud中数据是按区存放的，这些区可以在多台机器上，同时其提供副本冗余，具有很好的可扩展性。而Zookeeper保证了创建索引和搜索请求都能被正确的路由。简单来说：SolrCloud就是官方提供的一种基于Zookeep">
+  <meta name="description" content="SolrCloud是什么SolrCloud是基于Solr＋ZooKeeper实现的一套高可用、可容错的系统，用以完成分布式索引，查询请求负载均衡。在SolrCloud中数据是按区存放的，这些区可以在多台机器上，同时其提供副本冗余，具有很好的可扩展性。而Zookeeper保证了创建索引和搜索请求都能被正确的路由。简单来说：SolrCloud就是官方提供的一种基于Zookeeper的Solr集群方案，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="起步SolrCloud">
 <meta property="og:url" content="http://songg.gitcafe.io/2015/08/30/solrcloud/index.html">
 <meta property="og:site_name" content="川上">
-<meta property="og:description" content="SolrCloud是什么SolrCloud是基于Solr＋ZooKeeper实现的一套高可用、可容错的系统，可以实现原来Solr很难做到的分布式索引，查询请求的负载均衡。在SolrCloud中数据是按区存放的，这些区可以在多台机器上，同时其提供副本冗余，具有很好的可扩展性。而Zookeeper保证了创建索引和搜索请求都能被正确的路由。简单来说：SolrCloud就是官方提供的一种基于Zookeep">
-<meta property="og:updated_time" content="2015-08-30T14:33:31.191Z">
+<meta property="og:description" content="SolrCloud是什么SolrCloud是基于Solr＋ZooKeeper实现的一套高可用、可容错的系统，用以完成分布式索引，查询请求负载均衡。在SolrCloud中数据是按区存放的，这些区可以在多台机器上，同时其提供副本冗余，具有很好的可扩展性。而Zookeeper保证了创建索引和搜索请求都能被正确的路由。简单来说：SolrCloud就是官方提供的一种基于Zookeeper的Solr集群方案，">
+<meta property="og:updated_time" content="2015-08-30T14:35:26.675Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="起步SolrCloud">
-<meta name="twitter:description" content="SolrCloud是什么SolrCloud是基于Solr＋ZooKeeper实现的一套高可用、可容错的系统，可以实现原来Solr很难做到的分布式索引，查询请求的负载均衡。在SolrCloud中数据是按区存放的，这些区可以在多台机器上，同时其提供副本冗余，具有很好的可扩展性。而Zookeeper保证了创建索引和搜索请求都能被正确的路由。简单来说：SolrCloud就是官方提供的一种基于Zookeep">
+<meta name="twitter:description" content="SolrCloud是什么SolrCloud是基于Solr＋ZooKeeper实现的一套高可用、可容错的系统，用以完成分布式索引，查询请求负载均衡。在SolrCloud中数据是按区存放的，这些区可以在多台机器上，同时其提供副本冗余，具有很好的可扩展性。而Zookeeper保证了创建索引和搜索请求都能被正确的路由。简单来说：SolrCloud就是官方提供的一种基于Zookeeper的Solr集群方案，">
   
   
     <link rel="icon" href="/favicon.png">
@@ -209,7 +209,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="SolrCloud是什么">SolrCloud是什么</h2><p>SolrCloud是基于Solr＋ZooKeeper实现的一套高可用、可容错的系统，可以实现原来Solr很难做到的分布式索引，查询请求的负载均衡。在SolrCloud中数据是按区存放的，这些区可以在多台机器上，同时其提供副本冗余，具有很好的可扩展性。而Zookeeper保证了创建索引和搜索请求都能被正确的路由。简单来说：SolrCloud就是官方提供的一种基于Zookeeper的Solr集群方案，所以说现在不带个cloud都不好意思跟别人说自己是集群方案。<br><a id="more"></a></p>
+        <h2 id="SolrCloud是什么">SolrCloud是什么</h2><p>SolrCloud是基于Solr＋ZooKeeper实现的一套高可用、可容错的系统，用以完成分布式索引，查询请求负载均衡。在SolrCloud中数据是按区存放的，这些区可以在多台机器上，同时其提供副本冗余，具有很好的可扩展性。而Zookeeper保证了创建索引和搜索请求都能被正确的路由。简单来说：SolrCloud就是官方提供的一种基于Zookeeper的Solr集群方案，所以说现在不带个cloud都不好意思跟别人说自己是集群方案。<br><a id="more"></a></p>
 <h2 id="如何启动SolrCloud">如何启动SolrCloud</h2><h3 id="有交互的启动">有交互的启动</h3><p>下载的<a href="http://apache.fayea.com/lucene/solr/5.3.0" target="_blank" rel="external">solr</a>包的bin目录下面有很多脚本，其中solr脚本就可以很方便的让我们以cloud模式启动solr，只要敲入如下简单的命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/solr <span class="operator">-e</span> cloud</span><br></pre></td></tr></table></figure></p>
 <p>这个方式会开启一个交互性的启动会话，指导你一步一步用内置的Zookpeer设置一个简单的SolrCloud集群。脚本启动时首先会让你指定你本地集群的Solr节点数，如果不指定脚本会默认指定2个节点。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Welcome to the SolrCloud example!</span><br><span class="line"> </span><br><span class="line">This interactive session will <span class="built_in">help</span> you launch a SolrCloud cluster on your <span class="built_in">local</span> workstation.</span><br><span class="line">To begin, how many Solr nodes would you like to run <span class="keyword">in</span> your <span class="built_in">local</span> cluster? (specify <span class="number">1</span>-<span class="number">4</span> nodes) [<span class="number">2</span>]</span><br></pre></td></tr></table></figure></p>
 <p>自带的solr脚本最多支持设置4个solr节点。接下来脚本会让你指定每个节点使用的端口：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Please enter the port <span class="keyword">for</span> node1 [<span class="number">8983</span>]</span><br></pre></td></tr></table></figure></p>
