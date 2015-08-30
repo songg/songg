@@ -4,7 +4,7 @@
   <subtitle><![CDATA[少说多做]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://songg.gitcafe.io/"/>
-  <updated>2015-08-30T13:26:25.819Z</updated>
+  <updated>2015-08-30T13:28:03.259Z</updated>
   <id>http://songg.gitcafe.io/</id>
   
   <author>
@@ -19,11 +19,13 @@
     <link href="http://songg.gitcafe.io/2015/08/30/solrcloud/"/>
     <id>http://songg.gitcafe.io/2015/08/30/solrcloud/</id>
     <published>2015-08-30T10:26:32.000Z</published>
-    <updated>2015-08-30T13:26:25.819Z</updated>
-    <content type="html"><![CDATA[<p>##SolrCloud是什么<br>SolrCloud是基于Solr＋ZooKeeper实现的一套高可用、可容错的系统，可以实现原来Solr很难做到的分布式索引，查询请求的负载均衡。在SolrCloud中数据是按区存放的，这些区可以在多台机器上，同时其提供副本冗余，具有很好的可扩展性。而Zookeeper保证了创建索引和搜索请求都能被正确的路由。</p>
+    <updated>2015-08-30T13:28:03.259Z</updated>
+    <content type="html"><![CDATA[<p>##SolrCloud是什么</p>
+<p>SolrCloud是基于Solr＋ZooKeeper实现的一套高可用、可容错的系统，可以实现原来Solr很难做到的分布式索引，查询请求的负载均衡。在SolrCloud中数据是按区存放的，这些区可以在多台机器上，同时其提供副本冗余，具有很好的可扩展性。而Zookeeper保证了创建索引和搜索请求都能被正确的路由。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>##SolrCloud是什么<br>SolrCloud是基于Solr＋ZooKeeper实现的一套高可用、可容错的系统，可以实现原来Solr很难做到的分布式索引，查询请求的负载均衡。在SolrCloud中数据是按区存放的，这些区可以在多台机器上，同时其提供副本冗余，具有很好]]>
+    <![CDATA[<p>##SolrCloud是什么</p>
+<p>SolrCloud是基于Solr＋ZooKeeper实现的一套高可用、可容错的系统，可以实现原来Solr很难做到的分布式索引，查询请求的负载均衡。在SolrCloud中数据是按区存放的，这些区可以在多台机器上，同时其提供副本冗余，]]>
     </summary>
     
       <category term="java" scheme="http://songg.gitcafe.io/tags/java/"/>
