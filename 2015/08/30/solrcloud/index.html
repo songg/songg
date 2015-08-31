@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://songg.gitcafe.io/2015/08/30/solrcloud/index.html">
 <meta property="og:site_name" content="川上">
 <meta property="og:description" content="SolrCloud是什么SolrCloud是基于Solr＋ZooKeeper实现的一套高可用、可容错的系统，用以完成分布式索引，查询请求负载均衡。在SolrCloud中数据可以按区存放的，这些区可以在多台机器上，同时其提供副本冗余，具有很好的可扩展性。而Zookeeper保证了创建索引和搜索请求都能被正确的路由。简单来说：SolrCloud就是官方提供的一种基于Zookeeper的Solr集群方案">
-<meta property="og:updated_time" content="2015-08-31T15:16:57.188Z">
+<meta property="og:updated_time" content="2015-08-31T15:18:55.672Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SolrCloud入门">
 <meta name="twitter:description" content="SolrCloud是什么SolrCloud是基于Solr＋ZooKeeper实现的一套高可用、可容错的系统，用以完成分布式索引，查询请求负载均衡。在SolrCloud中数据可以按区存放的，这些区可以在多台机器上，同时其提供副本冗余，具有很好的可扩展性。而Zookeeper保证了创建索引和搜索请求都能被正确的路由。简单来说：SolrCloud就是官方提供的一种基于Zookeeper的Solr集群方案">
@@ -218,7 +218,7 @@
 <p>默认的名字就是gettingstarted<br>继续，脚本会让你指定用来分布式存储collection的shard个数。<br>继续，脚本会让你指定每个shard的副本数。<br>最后，脚本会让你指定配置目录，你可以选择basic_configs，data_driven_schema_configs，或者sample_techproducts_configs.以上目录都可以在server/solr/configsets/目录中看到，如果你不选择默认就是data_driven_schema_configs。<br>自此，你就成功搭建了一个简单的SolrCloud集群，并创建了一个名为gettingstarted的collection。不信你可以跑一下下面这个脚本验证一下。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/solr status</span><br></pre></td></tr></table></figure></p>
 <p>如果你在上面的步骤中遇到任何问题，你也可以在example/cloud/node1/logs和example/cloud/node2/logs目录中查看log<br>成功搭建后，solrcloud会启动内嵌的jetty提供一整套http后台管理服务，<a href="http://localhost:8983/solr/#/～cloud" target="_blank" rel="external">http://localhost:8983/solr/#/～cloud</a>，在这里你可以看到collection是如何在集群中部署的。除了在后台直观的看到整个solrcloud的运行状况外，solrcloud也提供了一个简单的collection诊断脚本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/solr healthcheck -c gettingstarted</span><br></pre></td></tr></table></figure></p>
 <p>停止solrcloud集群可以用这个脚本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/solr stop -all</span><br></pre></td></tr></table></figure></p>
-<p>###静默启动方式<br>下面这个启动方式所有配置都会以默认值启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/solr <span class="operator">-e</span> cloud -noprompt</span><br></pre></td></tr></table></figure></p>
+<h3 id="静默启动方式">静默启动方式</h3><p>下面这个启动方式所有配置都会以默认值启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/solr <span class="operator">-e</span> cloud -noprompt</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
