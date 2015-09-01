@@ -4,7 +4,7 @@
   <subtitle><![CDATA[少说多做]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://songg.gitcafe.io/"/>
-  <updated>2015-08-31T15:18:55.672Z</updated>
+  <updated>2015-09-01T15:36:02.347Z</updated>
   <id>http://songg.gitcafe.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://songg.gitcafe.io/2015/08/30/solrcloud/"/>
     <id>http://songg.gitcafe.io/2015/08/30/solrcloud/</id>
     <published>2015-08-30T10:26:32.000Z</published>
-    <updated>2015-08-31T15:18:55.672Z</updated>
+    <updated>2015-09-01T15:36:02.347Z</updated>
     <content type="html"><![CDATA[<h2 id="SolrCloud是什么">SolrCloud是什么</h2><p>SolrCloud是基于Solr＋ZooKeeper实现的一套高可用、可容错的系统，用以完成分布式索引，查询请求负载均衡。在SolrCloud中数据可以按区存放的，这些区可以在多台机器上，同时其提供副本冗余，具有很好的可扩展性。而Zookeeper保证了创建索引和搜索请求都能被正确的路由。简单来说：SolrCloud就是官方提供的一种基于Zookeeper的Solr集群方案，所以说现在不带个cloud都不好意思跟别人说自己是集群方案。<br><a id="more"></a></p>
 <h2 id="如何启动SolrCloud">如何启动SolrCloud</h2><h3 id="有交互的启动">有交互的启动</h3><p>下载的<a href="http://apache.fayea.com/lucene/solr/5.3.0" target="_blank" rel="external">solr</a>包的bin目录下面有很多脚本，其中solr脚本就可以很方便的让我们以cloud模式启动solr，只要敲入如下简单的命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/solr <span class="operator">-e</span> cloud</span><br></pre></td></tr></table></figure></p>
 <p>这个方式会开启一个交互性的启动会话，指导你一步一步用内置的Zookpeer设置一个简单的SolrCloud集群。脚本启动时首先会让你指定你本地集群的Solr节点数，如果不指定脚本会默认指定2个节点。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Welcome to the SolrCloud example!</span><br><span class="line"> </span><br><span class="line">This interactive session will <span class="built_in">help</span> you launch a SolrCloud cluster on your <span class="built_in">local</span> workstation.</span><br><span class="line">To begin, how many Solr nodes would you like to run <span class="keyword">in</span> your <span class="built_in">local</span> cluster? (specify <span class="number">1</span>-<span class="number">4</span> nodes) [<span class="number">2</span>]</span><br></pre></td></tr></table></figure></p>
@@ -30,6 +30,11 @@
 <p>如果你在上面的步骤中遇到任何问题，你也可以在example/cloud/node1/logs和example/cloud/node2/logs目录中查看log<br>成功搭建后，solrcloud会启动内嵌的jetty提供一整套http后台管理服务，<a href="http://localhost:8983/solr/#/～cloud" target="_blank" rel="external">http://localhost:8983/solr/#/～cloud</a>，在这里你可以看到collection是如何在集群中部署的。除了在后台直观的看到整个solrcloud的运行状况外，solrcloud也提供了一个简单的collection诊断脚本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/solr healthcheck -c gettingstarted</span><br></pre></td></tr></table></figure></p>
 <p>停止solrcloud集群可以用这个脚本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/solr stop -all</span><br></pre></td></tr></table></figure></p>
 <h3 id="静默启动方式">静默启动方式</h3><p>下面这个启动方式所有配置都会以默认值启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/solr <span class="operator">-e</span> cloud -noprompt</span><br></pre></td></tr></table></figure></p>
+<h3 id="重启节点">重启节点</h3><p>bin/solr脚本还可以重启节点，例如，重启内嵌zookeeper的第一个节点：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/solr restart -c -p <span class="number">8983</span> <span class="operator">-s</span> exmaple/cloud/node1/solr</span><br></pre></td></tr></table></figure></p>
+<p>重启第二个节点，就稍微有点差异了，你需要指定zookeeper地址，以便让第二个节点注册到节点1的zookeeper中形成一个集群，像这样：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/solr restart -c -p <span class="number">7574</span> -z localhost:<span class="number">9983</span> <span class="operator">-s</span> example/cloud/node2/solr</span><br></pre></td></tr></table></figure></p>
+<h3 id="往集群添加节点">往集群添加节点</h3><p>向集群中添加一个节点是一个稍微高级点的操作，需要对solr有一定的理解，以本文搭建的这个集群为例，你可以用如下方式添加一个节点<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir -p example/cloud/node3/solr</span><br><span class="line">$ cp server/solr/solr.xml example/cloud/node3/solr</span><br><span class="line">$ bin/solr start -cloud <span class="operator">-s</span> example/cloud/node3/solr -p <span class="number">8987</span> -z localhost:<span class="number">9983</span></span><br></pre></td></tr></table></figure></p>
+<p>如上所示需要做三件事，第一创建一个solr的home目录。第二copy一个solr.xml文件到这个目录。第三以cloud模式启动，并指定zookeeper地址加入集群</p>
+<p>以上便是一个简单的入门介绍，不过上述所有方式都是一个简单的试验环境性质的搭建过程不能用于真实的产品环境，产品环境下的搭建还有一些差异，需要将各节点配置成自动化启动，还得替换掉内置的zookeeper，各节点也要独立开来等等。</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h2 id="SolrCloud是什么">SolrCloud是什么</h2><p>SolrCloud是基于Solr＋ZooKeeper实现的一套高可用、可容错的系统，用以完成分布式索引，查询请求负载均衡。在SolrCloud中数据可以按区存放的，这些区可以在多台机器上，同时其提供副本冗余，具有很好的可扩展性。而Zookeeper保证了创建索引和搜索请求都能被正确的路由。简单来说：SolrCloud就是官方提供的一种基于Zookeeper的Solr集群方案，所以说现在不带个cloud都不好意思跟别人说自己是集群方案。<br>]]>
