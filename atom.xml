@@ -4,7 +4,7 @@
   <subtitle><![CDATA[少说多做]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://songg.gitcafe.io/"/>
-  <updated>2015-12-30T16:02:48.128Z</updated>
+  <updated>2015-12-30T16:03:47.280Z</updated>
   <id>http://songg.gitcafe.io/</id>
   
   <author>
@@ -19,9 +19,8 @@
     <link href="http://songg.gitcafe.io/2015/12/30/mongodb-cluster/"/>
     <id>http://songg.gitcafe.io/2015/12/30/mongodb-cluster/</id>
     <published>2015-12-30T15:55:02.000Z</published>
-    <updated>2015-12-30T16:02:48.128Z</updated>
-    <content type="html"><![CDATA[<p>##Mongodb集群的三种方式</p>
-<p>mongodb从简单到复杂有三种集群方案：</p>
+    <updated>2015-12-30T16:03:47.280Z</updated>
+    <content type="html"><![CDATA[<h2 id="Mongodb集群的三种方式">Mongodb集群的三种方式</h2><p>mongodb从简单到复杂有三种集群方案：</p>
 <ol>
 <li><p>master+slave</p>
 </li>
@@ -32,14 +31,13 @@
 </ol>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>##Mongodb集群的三种方式</p>
-<p>mongodb从简单到复杂有三种集群方案：</p>
+    <![CDATA[<h2 id="Mongodb集群的三种方式">Mongodb集群的三种方式</h2><p>mongodb从简单到复杂有三种集群方案：</p>
 <ol>
 <li><p>master+slave</p>
 </li>
 <li><p>replica set</p>
 </li>
-<li><p>mongos + shard</]]>
+<li>]]>
     </summary>
     
       <category term="mongodb" scheme="http://songg.gitcafe.io/tags/mongodb/"/>
