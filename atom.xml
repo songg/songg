@@ -4,7 +4,7 @@
   <subtitle><![CDATA[少说多做]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://songg.gitcafe.io/"/>
-  <updated>2015-09-01T15:36:02.347Z</updated>
+  <updated>2015-12-30T16:02:48.128Z</updated>
   <id>http://songg.gitcafe.io/</id>
   
   <author>
@@ -13,6 +13,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[mongodb cluster]]></title>
+    <link href="http://songg.gitcafe.io/2015/12/30/mongodb-cluster/"/>
+    <id>http://songg.gitcafe.io/2015/12/30/mongodb-cluster/</id>
+    <published>2015-12-30T15:55:02.000Z</published>
+    <updated>2015-12-30T16:02:48.128Z</updated>
+    <content type="html"><![CDATA[<p>##Mongodb集群的三种方式</p>
+<p>mongodb从简单到复杂有三种集群方案：</p>
+<ol>
+<li><p>master+slave</p>
+</li>
+<li><p>replica set</p>
+</li>
+<li><p>mongos + shard</p>
+</li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>##Mongodb集群的三种方式</p>
+<p>mongodb从简单到复杂有三种集群方案：</p>
+<ol>
+<li><p>master+slave</p>
+</li>
+<li><p>replica set</p>
+</li>
+<li><p>mongos + shard</]]>
+    </summary>
+    
+      <category term="mongodb" scheme="http://songg.gitcafe.io/tags/mongodb/"/>
+    
+      <category term="计算机" scheme="http://songg.gitcafe.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+      <category term="数据库" scheme="http://songg.gitcafe.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[SolrCloud入门]]></title>
